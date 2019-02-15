@@ -1,10 +1,13 @@
+import { http } from './http';
+
+// Get posts on DOM load
+document.addEventListener('DOMContentLoaded', getPosts);
 
 
-// Below is app functionality
-// const getData = async (url) => {
-//   const response = await fetch(url);
-//   const result = await response.json();
-//   console.log(result);
-// };
+function getPosts() {
+  http.get('http://localhost:3000/posts')
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+}
 
-// getData('https://jsonplaceholder.typicode.com/posts');
+
