@@ -6,9 +6,14 @@
       "body": "Body of Post One"
     },
     {
-      "id": 3,
-      "title": "Post Three",
-      "body": "Body of Post Three"
+      "title": "Post Two",
+      "body": "This is the body of post Two, but it's really post 4, since post 2 was deleted, and this post was made after the deletion.",
+      "id": 4
+    },
+    {
+      "title": "Post Threee",
+      "body": "This is post three.",
+      "id": 5
     }
   ]
 }

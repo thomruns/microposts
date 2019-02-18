@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', getPosts);
 document.querySelector('.post-submit').addEventListener('click', submitPost);
 // listen for delete
 document.querySelector('#posts').addEventListener('click', deletePost);
+// listen for edit state
+document.querySelector('#posts').addEventListener('click', enableEdit);
 
 // get existing posts
 function getPosts() {
@@ -22,7 +24,7 @@ function submitPost() {
 
   const data = {
     title: title, // can be shortcut as simply title; shown for clarity only
-    body: body
+    body: body // equivalent to body
   }
 
   // create post
@@ -42,14 +44,35 @@ function deletePost(e) {
     if(confirm('Are you sure?')) {
       http.delete(`http://localhost:3000/posts/${id}`)
       .then(data => {
-        ui.showAlert('Post Removed', 'alert alert-success')
-      ;
-      getPosts();
+        ui.showAlert('Post Removed', 'alert alert-success');
+        getPosts();
       })
       .catch(err => {
         console.log(err);
       })
     }
+  }
+  e.preventDefault();
+}
+
+// enable edit state
+function enableEdit(e) {
+  // get the target's id, title content, and body content
+  const id = e.target.parentElement.dataset.id;
+  const title = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+  const body = e.target.parentElement.previousElementSibling.textContent;
+  // create a data object
+  const data = {
+    id,
+    title,
+    body
+  }
+
+  // fill form w current post
+
+  ui.fillForm(data);
+  if(e.target.parentElement.classList.contains('edit')) {
+    console.log(`ID: ${data.id}, Title: ${data.title}, Body: ${data.body}`);
   }
   e.preventDefault();
 }
