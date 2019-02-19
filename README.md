@@ -1,6 +1,9 @@
-# Babel Webpack Starter
+# Sample MicroBlog app
 
-A starter pack to build JavaScript applications using standards from ES2015, ES2016 & ES2017. It uses webpack, Babel and webpack-dev-server to compile and serve. It is fully compatible with Async/Await as it uses the Babel polyfill. This app is based on Brad Traversy's Udemy Javascript course.
+This is a mini microblog app that uses the following technologies: webpack, json-server, and babel. This app is based on Brad Traversy's Udemy Javascript course.
+
+It uses a sample database served up by json-server, but could be applied to an api. In its development form, the following steps should be followed:
+
 
 ### Version
 1.1.0
@@ -11,23 +14,26 @@ A starter pack to build JavaScript applications using standards from ES2015, ES2
 
 Install the dependencies
 
-```sh
 $ npm install
-```
+
 
 ### Serve
 To serve in the browser  - Runs webpack-dev-server
 
-```sh
-$ npm start
-```
+$ npm run start
+
+### Json serve
+To run the json-server
+
+$ npm run json:server
+
 
 ### Build
 Compile and build
 
-```sh
+
 $ npm run build
-```
+
 
 ## More Info
 
